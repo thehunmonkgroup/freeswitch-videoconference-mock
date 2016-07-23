@@ -3,11 +3,8 @@
 ]]
 
 require('support_functions')
+local config = require('mock_conference_users_config')
 
-gateway = "test_harness"
-server = "[freeswitch_conference_server_ip]"
-extension = "load_test"
-mock_video_file = "vlc:///usr/local/freeswitch/storage/sample-vid.mp4"
 mock_state_variable_name = "hangup_mock_user"
 
 api = freeswitch.API();
@@ -73,7 +70,7 @@ function main()
     if action == "add" then
       debug_print(string.format("Adding mock user #%d", i))
       api:executeString(string.format("global_setvar %s_%s=", mock_state_variable_name, i))
-      api:executeString(string.format("luarun mock_conference_user.lua %s %s %s %s %s %s %d", gateway, server, extension, mock_video_file, mock_state_variable_name, conference_id, i))
+      api:executeString(string.format("luarun mock_conference_user.lua %s %s %s %s %s %s %d", config.gateway, config.server, config.extension, config.mock_video_file, mock_state_variable_name, conference_id, i))
     elseif action == "remove" then
       debug_print(string.format("Removing mock user #%d", i))
       api:executeString(string.format("global_setvar %s_%s=true", mock_state_variable_name, i))
