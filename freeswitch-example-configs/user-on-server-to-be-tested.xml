@@ -1,0 +1,11 @@
+<!-- Should match the login information from the
+mocking-server-sip-gateway example. -->
+<user id="test_harness">
+  <params>
+    <param name="password" value="supersecret"/>
+  </params>
+  <variables>
+    <variable name="accountcode" value="test_harness"/>
+    <variable name="user_context" value="test_harness"/>
+  </variables>
+</user>

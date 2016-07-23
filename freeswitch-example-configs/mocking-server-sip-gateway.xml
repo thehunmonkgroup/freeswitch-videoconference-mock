@@ -1,0 +1,11 @@
+<include>
+  <gateway name="test_harness">
+    <!--/// account username *required* ///-->
+    <param name="username" value="test_harness"/>
+    <!--/// account password *required* ///-->
+    <param name="password" value="supersecret"/>
+    <!-- Replace [freeswitch_conference_server_domain] with the domain on the
+         server to be tested, where the SIP user is configured. -->
+    <param name="realm" value="[freeswitch_conference_server_domain]"/>
+  </gateway>
+</include>

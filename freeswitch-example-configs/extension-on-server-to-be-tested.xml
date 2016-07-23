@@ -1,0 +1,14 @@
+<include>
+
+  <extension name="load_test">
+    <condition field="destination_number" expression="^load_test$">
+      <action application="info"/>
+      <action application="answer"/>
+      <action application="set" data="video_banner_text=${caller_id_name}"/>
+      <!-- The mocking server passes the conference ID the user should join
+           in the sip_h_X-conference_id variable -->
+      <action application="conference" data="${sip_h_X-conference_id}@video-mcu-stereo++flags{nomoh|mute|vmute}"/>
+    </condition>
+  </extension>
+
+</include>
